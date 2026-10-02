@@ -48,7 +48,7 @@ fichiers de steering (design d'API, Eloquent, tests, contraintes Lambda, queues)
 
 ## Logs et protection des données
 
-- Utilise des logs structurés : un message court et constant, plus un tableau de contexte (`Log::info('Order paid', ['order_id' => $order->id])`).
+- Utilise des logs structurés : un message court et constant, plus un tableau de contexte (`$this->logger->info('Order paid', ['order_id' => $order->id])`, avec `Psr\Log\LoggerInterface` injecté).
 - Ne logue jamais de secrets, tokens, mots de passe, numéros de carte ou d'IBAN complets, ni de données personnelles au-delà des identifiants techniques.
 - N'expose jamais de détails internes (SQL, noms de classes, stack traces) dans les réponses d'API.
 
